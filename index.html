@@ -456,7 +456,6 @@
                     })
 
                     playlist.innerHTML = htmls.join('');     
-                    this.scrollToSongActive();
             },
             defineProperties: function(){
                 Object.defineProperty(this, 'currentSong', {
@@ -517,7 +516,7 @@
                 })
                 cdRotate.pause();
 
-                const widthCd = cd.clientWidth;
+                const widthCd = cd.offsetWidth;
                 // Thu nhỏ CD khi scroll
                 document.onscroll = function(){
                     const widthScroll = window.scrollY || document.documentElement.scrollTop;
@@ -580,6 +579,9 @@
                     }
                     _this.render();
 
+                    _this.scrollToSongActive();
+
+
                 }
 
                 // Xử kí Prev bài hát
@@ -587,6 +589,8 @@
                     _this.prevSong();
                     audio.play();
                     _this.render();
+
+                    _this.scrollToSongActive();
                 }
 
                 
@@ -615,7 +619,8 @@
                         _this.nextSong();
                         audio.play();
                     }
-                    
+
+                    _this.scrollToSongActive();
                 }
 
 
@@ -627,6 +632,8 @@
                         _this.loadCurrentSong();
                         _this.render();
                         audio.play();
+                        _this.scrollToSongActive();
+
                     }   
                     if(e.target.closest('.option')){
                         console.log('Chọn gì chọn đi')
