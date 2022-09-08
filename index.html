@@ -521,8 +521,8 @@
                 document.onscroll = function(){
                     const widthScroll = window.scrollY || document.documentElement.scrollTop;
                     const newWidth = widthCd - widthScroll;
-                    cd.style.width = newWidth > 0 ? newWidth + 'px' : 0;
-                    cd.style.opacity = newWidth / widthCd;
+                    cd.style.width = newWidth > 50 ? newWidth + 'px' : 50 + 'p50';  
+                    // cd.style.opacity = newWidth / widthCd;
                 }
 
                 // Xử lí phát nhạc khi click vào nút play 
