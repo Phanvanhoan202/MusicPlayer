@@ -17,7 +17,7 @@
     <style>
         :root {
             --primary-color: rgb(236, 31, 85);
-            --text-color: #333;
+            --text-color: rgb(51, 51, 51);
         }
 
         * {
@@ -564,6 +564,7 @@
                         const seeking = e.target.value;
                         const seekTime = seeking / 100 * audio.duration;
                         audio.currentTime = seekTime;
+                        audio.play();
                     }
 
                     progress.value = currentPercent || 0;
@@ -573,6 +574,7 @@
                 btnNext.onclick = () => {
                     if(_this.isRandom){
                         _this.randomSong();
+                        audio.play();
                     }else{
                         _this.nextSong();
                         audio.play();
@@ -586,8 +588,13 @@
 
                 // Xử kí Prev bài hát
                 btnPrev.onclick = () => {
-                    _this.prevSong();
-                    audio.play();
+                    if(_this.isRandom){
+                        _this.randomSong();
+                        audio.play();
+                    }else{
+                        _this.nextSong();
+                        audio.play();
+                    }
                     _this.render();
 
                     _this.scrollToSongActive();
@@ -619,7 +626,7 @@
                         _this.nextSong();
                         audio.play();
                     }
-
+                    _this.render();
                     _this.scrollToSongActive();
                 }
 
