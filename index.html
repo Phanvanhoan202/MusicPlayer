@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zing MP3</title>
+    <title class="title-song">Zing MP3</title>
 
     <!-- FONT GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -300,6 +300,8 @@
 
         const PLAYER_STORAGE_KEY = '"CURRENT_SONG"';
 
+        const title = $('.title-song')
+
         const playlist = $('.playlist');
         const cd = $('.cd');
         const cdImg = $('.cd .cd-img');
@@ -434,6 +436,18 @@
                     singer: 'Boney M',
                     path: './assets/path/song18.mp3',
                     image: './assets/image/song18.jpg'
+                },
+                {
+                    name: 'Arhbo | FIFA World Cup 2022™',
+                    singer: 'Ozuna & GIMS',
+                    path: './assets/path/song19.mp3',
+                    image: './assets/image/song19.jpg'
+                },
+                {
+                    name: 'Hayya Hayya (Better Together) | FIFA World Cup 2022™',
+                    singer: 'Trinidad Cardona, Davido and Aisha.',
+                    path: './assets/path/song20.mp3',
+                    image: './assets/image/song20.jpg'
                 }
 
                 
@@ -653,6 +667,8 @@
                 songName.textContent = this.currentSong.name;
                 cdImg.style.backgroundImage = `url('${this.currentSong.image}')`
                 audio.src = this.currentSong.path;
+                
+                title.textContent = this.currentSong.name
 
             },
 
